@@ -9,18 +9,29 @@
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
+    "ci": "echo hello world",
     "start": "react-native-scripts start",
+    "haiden": "cross-env REACT_NATIVE_PACKAGER_HOSTNAME=192.168.137.1 react-native-scripts start",
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js"
+    "test": "node node_modules/jest/bin/jest.js",
+    "react-devtools": "react-devtools"
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
+    "cross-env": "^5.1.3",
     "expo": "^25.0.0",
     "react": "16.2.0",
-    "react-native": "0.52.0"
+    "react-devtools": "^3.1.0",
+    "react-native": "0.52.0",
+    "react-native-elements": "^1.0.0-beta2",
+    "react-native-svg-charts": "^3.0.2",
+    "react-navigation": "^1.4.0",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0"
   }
 }
