@@ -7,5 +7,5 @@ export default function ( state= {
     default:
         return {...stateCopy}
   }
-                              
+
 }
