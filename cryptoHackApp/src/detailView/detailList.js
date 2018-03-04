@@ -6,19 +6,24 @@ import { data } from '../data/data';
 
 
 export default class DetailList extends Component {
+
+    constructor(props){
+        super(props);
+
+    }
+
     render() {
-        let item = data[0]
         return (
             // <View style={styles.container}>
             //     <FlatList
-            //         data={data[0]}
+            //         data={this.props.coin}
             //         renderItem={
             //             <ListItem
-            //             key={data[0].id}
+            //             key={this.props.coin.id}
             //             title="Price in USD"
             //             rightIcon={
                             
-            //                 <Text>{data[0].price_usd}</Text>
+            //                 <Text>{this.props.coin.price_usd}</Text>
                         
             //             }
             //             />
@@ -27,41 +32,38 @@ export default class DetailList extends Component {
 
             // </View>
             <View>
-                <Text style={styles.headerText}>{item.name} | {item.symbol}</Text>
+                <Text style={styles.headerText}>{this.props.coin.symbol}</Text>
             <List >
-            
                 <ListItem
-                key={'1'}
+                key={'1we'}
                 title="Price in USD"
                 rightIcon={
-                    <Text>${data[0].price_usd}</Text>            
+                    <Text>${this.props.coin.price_usd}</Text>            
                     }
                 />
                 <ListItem
-                key={'2'}
-                title="Price in BTC"
+                key={'211'}
+                title={`Price in BTC`}
                 rightIcon={
-                    <Text>{data[0].price_btc}</Text>            
+                    <Text>{this.props.coin.price_btc}</Text>            
                     }
                 />
 
                 <ListItem
-                key={'3'}
+                key={'3qweq'}
                 title="Total Supply"
                 rightIcon={
-                    <Text>{data[0].total_supply}</Text>            
+                    <Text>{this.props.coin.total_supply}</Text>            
                     }
                 />
 
                 <ListItem
-                key={'4'}
+                key={'4123'}
                 title="24 Hour Update"
                 rightIcon={
-                    <Text>{data[0].percent_change_24h}%</Text>            
+                    <Text>{this.props.coin.percent_change_24h}%</Text>            
                     }
                 />
-
-                
             </List>
             </View>
         );}

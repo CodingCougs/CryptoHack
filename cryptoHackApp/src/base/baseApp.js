@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { FeedStack } from '../config/router';
+import { FeedStack, Tabs } from '../config/router';
 export default class BaseApp extends Component {
 
   constructor(props){
@@ -17,7 +17,7 @@ export default class BaseApp extends Component {
 
   render() {
     return (
-      <FeedStack/>
+      <Tabs screenProps={this.props.app.user}/>
     )
   }
 }

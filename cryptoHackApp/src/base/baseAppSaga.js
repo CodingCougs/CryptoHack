@@ -44,11 +44,11 @@ export function * getCoinCurrentPrice(action){
 export function * getCoinDayHistory(action){
     try{
         let { id, currency, limit } = action.payload;
-        let response = yield call(coinMarketCapAPI.getCurrentPrice, id, currency, limit);
-        if(response.error) yield put({ type:baseActions.GET_COIN_CURRENT_PRICE_FAILURE, payload: response})
-        yield put({ type:baseActions.GET_COIN_CURRENT_PRICE_SUCCESS, payload:response})
+        let response = yield call(cryptoCompareAPI.getHistory, id, currency, limit);
+        if(response.error) yield put({ type:baseActions.GET_COIN_HISTORY_FAILURE, payload: response})
+        yield put({ type:baseActions.GET_COIN_HISTORY_SUCCESS, payload:{id, data:response.Data}})
     }catch(e){
-        yield put({ type:baseActions.GET_COIN_CURRENT_PRICE_FAILURE, payload: e })
+        yield put({ type:baseActions.GET_COIN_HISTORY_SUCCESS, payload: e })
     }
 }
 

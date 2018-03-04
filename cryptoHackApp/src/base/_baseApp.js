@@ -14,8 +14,6 @@ function mapDispatchToProps(dispatch){
 
         getTopHundyCoins: baseActions.getTop100Coin,
         getTopTenCoins: baseActions.getTop10Coin,
-        getCoinDayHistory: baseActions.getCoinDayHistory,
-        getCoinCurrentPrice: baseActions.getCoinCurrentPrice,
         getCoinList: baseActions.getCoinList
         
     }, dispatch)

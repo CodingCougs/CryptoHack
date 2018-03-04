@@ -1,13 +1,11 @@
 import { fork, all } from 'redux-saga/effects';
 //import sagas here
 
-import baseSaga from '../base/baseAppSaga';
-import currencyListSaga from '../currencyList/currencyListSaga';
+import baseSaga from '../base/baseAppSaga'; 
 
 const sagas = [
     // add sagas here
     baseSaga,
-    currencyListSaga
 ];
 
 function* globalSagas(){

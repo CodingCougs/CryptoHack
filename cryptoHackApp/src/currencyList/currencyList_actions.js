@@ -46,7 +46,7 @@ export function getCoinDayHistory(coinName, currency, timeLength){
         payload:{
             id: coinName,
             currency,
-            limit
+            limit:timeLength
         }
     }
 }

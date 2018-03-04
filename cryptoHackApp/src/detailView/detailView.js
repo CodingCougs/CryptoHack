@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Graph from './graph';
+import {GraphContainer} from './_graph';
 import BuySell from './buySell';
 import DetailList from './detailList';
 import { View } from 'react-native';
@@ -7,12 +7,18 @@ import { View } from 'react-native';
 
 
 export default class DetailView extends Component {
+
+    constructor(props){
+        super(props);
+        this.state={};
+    }
+
     render() {
         return (
             <View>
-                <Graph />
+                <GraphContainer coin={this.props.navigation.state.params.coin} />
                 <BuySell/>
-                <DetailList/>
+                <DetailList coin={this.props.navigation.state.params.coin}/>
             </View>
         )
     }
