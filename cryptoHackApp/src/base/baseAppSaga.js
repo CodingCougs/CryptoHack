@@ -21,7 +21,6 @@ export function * getTopHundyCoins(action){
     try{
 
         let response = yield call(coinMarketCapAPI.getTopHundred);
-
         if(response.error)  yield put({ type:baseActions.GET_TOP_100_COIN_FAILURE, payload: response})
 
         yield put({ type:baseActions.GET_TOP_100_COIN_SUCCESS, payload:response})

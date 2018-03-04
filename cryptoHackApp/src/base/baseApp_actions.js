@@ -32,6 +32,16 @@ export function getTop100Coin(){
 }
 
 //Pass and id or name of the coin
+export function getCoinList(){
+    
+    return{
+        type: GET_COIN_LIST,
+
+    }
+}
+
+
+//Pass and id or name of the coin
 export function getCoinCurrentPrice(coinName){
     
     return{

@@ -10,6 +10,7 @@ export default class BaseApp extends Component {
   
   componentDidMount(){
     this.props.getTopHundyCoins();
+    this.props.getCoinList();
     
   }
 

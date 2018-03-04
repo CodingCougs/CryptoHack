@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
 import { List, ListItem, Badge } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
-var ok = require('../media/act.svg')
+
 
 export default class CurrencyCell extends Component {
     constructor(props){
@@ -10,6 +10,7 @@ export default class CurrencyCell extends Component {
         this.state = {
             currencyUpdate: 'hello',
             checkCurr: true
+            
         }
     }
 
@@ -32,14 +33,16 @@ export default class CurrencyCell extends Component {
     
     }
 
+
     render() {
+    
     return (
             <ListItem
             roundAvatar
             onPress={()=>this.onLearnMore()}
             key={this.props.currency.id}
             title={this.props.currency.name}
-            avatar={{uri:ok}}
+            avatar={{uri: `https://www.cryptocompare.com${this.props.url ? this.props.url.ImageUrl : "sorry"}`}}
             rightIcon={
                 <Badge containerStyle={styles.badge} onPress={() => this.onCheckCurInfo(this.props)}>
                 <Text style={styles.badgeText} >{this.props.currency.price_usd}</Text>

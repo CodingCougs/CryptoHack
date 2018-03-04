@@ -12,12 +12,13 @@ export default class CurrencyList extends Component {
   }
 
   render() {
+    
     return ( 
     <View style={styles.container}>
         <FlatList
             data={this.props.app.coins}
             renderItem={({item}) =>
-              <CurrencyCell currency={item} navigation={this.props.navigation}/>
+              <CurrencyCell currency={item} url={item.symbol ? this.props.app.coinlist[item.symbol] : 'fucku'} navigation={this.props.navigation}/>
             }
         />
     </View>
