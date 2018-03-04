@@ -7,11 +7,6 @@ export default class BaseApp extends Component {
     super(props)
     this.state = { }
   }
-  
-//   componentDidMount(){
-//     this.props.getTopHundyCoins();
-
-// }
 
   render() {
     return (
