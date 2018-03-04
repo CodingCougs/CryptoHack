@@ -24,6 +24,8 @@ export default class CurrencyCell extends Component {
 
     onLearnMore = () => {
         this.props.navigation.navigate('Details',{coin: this.props.currency});
+        this.props.getCoinHistory(this.props.currency.symbol, "USD", 10);
+  
     };
 
     onCheckCurInfo = (currency) => {

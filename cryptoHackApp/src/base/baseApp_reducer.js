@@ -5,7 +5,7 @@ export default function ( state= {
   coins: [],
   coinlist:[]
 }, action ) {
-  let stateCopy = {...state};
+  let stateCopy = JSON.parse(JSON.stringify(state))
   switch(action.type){
 
   case baseActions.GET_TOP_100_COIN_SUCCESS:
@@ -16,6 +16,12 @@ export default function ( state= {
     stateCopy.coinlist = action.payload.Data;
     return {...stateCopy}
 
+  case baseActions.GET_COIN_HISTORY_SUCCESS:
+    let index = stateCopy.coins.findIndex( item => { return item.symbol == action.payload.id})
+    console.log(action.payload.data.length)
+    stateCopy.coins[index].history = action.payload.data;
+
+    return {...stateCopy}
     default:
         return {...stateCopy}
   }

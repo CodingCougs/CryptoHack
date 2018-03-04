@@ -13,7 +13,6 @@ export default class DetailList extends Component {
     }
 
     render() {
-        let item = this.props.coin
         return (
             // <View style={styles.container}>
             //     <FlatList
