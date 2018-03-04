@@ -12,7 +12,7 @@ export default class Graph extends Component {
         const contentInset = { top: 20, bottom: 20 }
 
         return (
-            <View style={ { height: 250, flexDirection: 'row' } }>
+            <View style={ { height: 200, flexDirection: 'row' } }>
                 
                 <YAxis
                   data={data}
