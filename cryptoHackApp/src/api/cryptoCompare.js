@@ -9,7 +9,17 @@ export default {
             credentials: 'include',
         }).then( statusHelper)
           .then(response => response.json())
-    }
+    },
+    getCoinList() {
+        return fetch("https://www.cryptocompare.com/api/data/coinlist", {
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+            }),
+            credentials: 'include',
+        }).then( statusHelper)
+          .then(response => response.json())
+    },
 
 }
 

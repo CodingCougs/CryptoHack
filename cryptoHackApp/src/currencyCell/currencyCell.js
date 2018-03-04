@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
 import { List, ListItem, Badge } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
 
+
 export default class CurrencyCell extends Component {
     constructor(props){
         super(props)
@@ -10,6 +11,7 @@ export default class CurrencyCell extends Component {
             dataDisplayed: null,
             badgeColor: '#52c45d',
             checkCurr: true
+            
         }
     }
 
@@ -42,14 +44,16 @@ export default class CurrencyCell extends Component {
         }
     }
 
+
     render() {
+    
     return (
             <ListItem
             roundAvatar
             onPress={()=>this.onLearnMore()}
-            key={this.props.currency.Id}
+            key={this.props.currency.id}
             title={this.props.currency.name}
-            avatar={{uri:`https://www.cryptocompare.com${this.props.currency.ImageUrl}`}}
+            avatar={{uri: `https://www.cryptocompare.com${this.props.url ? this.props.url.ImageUrl : "sorry"}`}}
             rightIcon={
                 <Badge containerStyle={{backgroundColor: this.state.badgeColor}} onPress={() => this.onCheckCurInfo(this.props.currency)}>
                     <Text style={styles.badgeText} >{this.state.dataDisplayed}</Text>

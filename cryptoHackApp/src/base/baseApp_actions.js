@@ -14,10 +14,14 @@ export const GET_COIN_HISTORY = 'GET_COIN_HISTORY';
 export const GET_COIN_HISTORY_SUCCESS = 'GET_COIN_HISTORY_SUCCESS';
 export const GET_COIN_HISTORY_FAILURE = 'GET_COIN_HISTORY_FAILURE';
 
+export const GET_COIN_LIST = 'GET_COIN_LIST';
+export const GET_COIN_LIST_SUCCESS = 'GET_COIN_LIST_SUCCESS';
+export const GET_COIN_LIST_FAILURE = 'GET_COIN_LIST_FAILURE';
+
 
 export function getTop10Coin(){
     return {
-        type: GET_TOP_100_COIN,
+        type: GET_TOP_10_COIN,
     }
 }
 
@@ -26,6 +30,16 @@ export function getTop100Coin(){
         type: GET_TOP_100_COIN,
     }
 }
+
+//Pass and id or name of the coin
+export function getCoinList(){
+    
+    return{
+        type: GET_COIN_LIST,
+
+    }
+}
+
 
 //Pass and id or name of the coin
 export function getCoinCurrentPrice(coinName){
