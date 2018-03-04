@@ -33,7 +33,7 @@ export default class DetailList extends Component {
 
             // </View>
             <View>
-                <Text style={styles.headerText}>{this.props.coin ? this.props.coin.name : "Loading"} | {this.props.coin.symbol}</Text>
+                <Text style={styles.headerText}>{this.props.coin.symbol}</Text>
             <List >
                 <ListItem
                 key={'1we'}

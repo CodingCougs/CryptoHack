@@ -16,7 +16,7 @@ export const FeedStack = StackNavigator({
     Details: {
       screen: DetailView,
       navigationOptions: ({ navigation }) => ({
-        title: "Detail View",
+        title: `${navigation.state.params.coin.name}`,
       }),
     },
   });
