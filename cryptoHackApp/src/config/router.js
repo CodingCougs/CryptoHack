@@ -30,7 +30,7 @@ export const FeedStack = StackNavigator({
       },
     },
     Me: {
-      screen: Me,
+      screen: Profile,
       navigationOptions: {
         tabBarLabel: 'Prfoile',
         tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
