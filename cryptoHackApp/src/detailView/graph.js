@@ -26,7 +26,7 @@ export default class Graph extends Component {
                 <LineChart
                     style={ { flex: 1, marginLeft: 16 } }
                     data={data}
-                    svg={{ stroke: 'rgb(134, 65, 244)' }}
+                    svg={{ stroke: 'rgb(82,196,93)' }}
                     contentInset={ contentInset }
                 />
             </View>
