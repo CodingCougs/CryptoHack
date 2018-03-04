@@ -47,7 +47,6 @@ export default class CurrencyCell extends Component {
             />
         );
     }
-
 }
 
 
@@ -68,4 +67,3 @@ export default class CurrencyCell extends Component {
         color: '#ffff'
     }
   })
-  
