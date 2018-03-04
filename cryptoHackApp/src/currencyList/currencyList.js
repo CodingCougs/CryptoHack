@@ -15,7 +15,7 @@ export default class CurrencyList extends Component {
     return ( 
     <View style={styles.container}>
         <FlatList
-            data={data}
+            data={this.props.app.coins}
             renderItem={({item}) =>
               <CurrencyCell currency={item} navigation={this.props.navigation}/>
             }
