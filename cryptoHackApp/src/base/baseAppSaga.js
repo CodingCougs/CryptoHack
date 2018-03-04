@@ -1,16 +1,58 @@
-import { takeLatest, put } from 'redux-saga';
+import { takeLatest, put, call,takeEvery } from 'redux-saga/effects';
+import coinMarketCapAPI from '../api/coinMarketCap';
+import cryptoCompareAPI from '../api/cryptoCompare';
+import * as baseActions from './baseApp_actions';
 
-//Example
-// export function* getUserInfo(action){
-//     try{
-//         let response = yield spotifyApi.getUserInformation();
-//         yield put({ type:meActions.GET_USER_INFO_SUCCESS, payload: response.body})
-//     }catch (e){
-//         yield put({ type:meActions.GET_USER_INFO_FAILURE, payload: 'Failure'})
-//     }
-// }
 
+export function * getTopTenCoins(action){
+
+    try{
+        let response = yield call(coinMarketCapAPI.getTopTen);
+        if(response.error)  yield put({ type:baseActions.GET_TOP_10_COIN_FAILURE, payload: response})
+        yield put({ type:baseActions.GET_TOP_10_COIN_SUCCESS, payload:response})
+    }catch(e){
+        yield put({ type:baseActions.GET_TOP_10_COIN_FAILURE, payload: e})
+    }
+
+}
+
+export function * getTopHundyCoins(action){
+
+    try{
+
+        let response = yield call(coinMarketCapAPI.getTopHundred);
+        if(response.error)  yield put({ type:baseActions.GET_TOP_100_COIN_FAILURE, payload: response})
+        yield put({ type:baseActions.GET_TOP_100_COIN_SUCCESS, payload:response})
+    }catch(e){
+        yield put({ type:baseActions.GET_TOP_100_COIN_FAILURE, payload: e})
+    }
+}
+
+export function * getCoinCurrentPrice(action){
+    try{
+        let { id } = action.payload;
+        let response = yield call(coinMarketCapAPI.getCurrentPrice, id);
+        if(response.error) yield put({ type:baseActions.GET_COIN_CURRENT_PRICE_FAILURE, payload: response})
+        yield put({ type:baseActions.GET_COIN_CURRENT_PRICE_SUCCESS, payload:response})
+    }catch(e){
+        yield put({ type:baseActions.GET_COIN_CURRENT_PRICE_FAILURE, payload: e})
+    }
+}
+
+export function * getCoinDayHistory(action){
+    try{
+        let { id, currency, limit } = action.payload;
+        let response = yield call(coinMarketCapAPI.getCurrentPrice, id, currency, limit);
+        if(response.error) yield put({ type:baseActions.GET_COIN_CURRENT_PRICE_FAILURE, payload: response})
+        yield put({ type:baseActions.GET_COIN_CURRENT_PRICE_SUCCESS, payload:response})
+    }catch(e){
+        yield put({ type:baseActions.GET_COIN_CURRENT_PRICE_FAILURE, payload: e })
+    }
+}
 
 export default function* baseSaga(){
-    //yield takeLatest(Action,Function);
+    yield takeLatest(baseActions.GET_COIN_CURRENT_PRICE, getCoinCurrentPrice);
+    yield takeLatest(baseActions.GET_COIN_HISTORY, getCoinDayHistory);
+    yield takeLatest(baseActions.GET_TOP_100_COIN, getTopHundyCoins);
+    yield takeLatest(baseActions.GET_TOP_10_COIN, getTopTenCoins);
 }
