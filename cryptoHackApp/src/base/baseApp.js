@@ -8,10 +8,10 @@ export default class BaseApp extends Component {
     this.state = { }
   }
   
-  componentDidMount(){
-    this.props.getTopHundyCoins();
+//   componentDidMount(){
+//     this.props.getTopHundyCoins();
 
-}
+// }
 
   render() {
     return (
