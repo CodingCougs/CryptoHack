@@ -7,8 +7,16 @@ export default class CurrencyCell extends Component {
     constructor(props){
         super(props)
         this.state = {
-            currencyUpdate: 'hello',
+            dataDisplayed: null,
+            badgeColor: '#52c45d',
             checkCurr: true
+        }
+    }
+
+    componentWillMount() {
+        if (!this.state.dataDisplayed) {
+            this.setState({dataDisplayed: `${this.props.currency.percent_change_24h}%`});
+            this.setBadgeColor();
         }
     }
 
@@ -17,18 +25,21 @@ export default class CurrencyCell extends Component {
     };
 
     onCheckCurInfo = (currency) => {
+        if (this.state.checkCurr){
+            this.setState({dataDisplayed: `$${currency.price_usd}`,checkCurr: false });
+        }
+        else {
+            this.setState({dataDisplayed: `${currency.percent_change_24h}%`, checkCurr: true });
+        }
+    }
 
-    if(this.state.checkCurr){
-        console.log(this.state.currencyUpdate);
-        this.setState({currencyUpdate: currency.price_usd,checkCurr: false })
-        console.log(this.state.currencyUpdate)
-    }
-    else {
-        console.log(this.state.currencyUpdate)
-        this.setState({currencyUpdate: currency.percent_change_24h, checkCurr: true })
-        console.log(this.state.currencyUpdate)
-    }
-    
+    setBadgeColor() {
+        if (this.props.currency.percent_change_24h < 0) {
+            this.setState({badgeColor: '#d6251b'});
+        }
+        else {
+            this.setState({badgeColor: '#52c45d'});
+        }
     }
 
     render() {
@@ -40,8 +51,8 @@ export default class CurrencyCell extends Component {
             title={this.props.currency.name}
             avatar={{uri:`https://www.cryptocompare.com${this.props.currency.ImageUrl}`}}
             rightIcon={
-                <Badge containerStyle={styles.badge} onPress={() => this.onCheckCurInfo(this.props)}>
-                <Text style={styles.badgeText} >{this.props.currency.price_usd}</Text>
+                <Badge containerStyle={{backgroundColor: this.state.badgeColor}} onPress={() => this.onCheckCurInfo(this.props.currency)}>
+                    <Text style={styles.badgeText} >{this.state.dataDisplayed}</Text>
                 </Badge>
             }
             />
