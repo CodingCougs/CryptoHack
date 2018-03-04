@@ -2,12 +2,13 @@ import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 
-import currencyList from '../currencyList/currencyList';
+import CurrencyList from '../currencyList/currencyList';
+import CurrencyCell from '../currencyCell/currencyCell';
 import baseApp from '../base/baseApp';
 
 export const FeedStack = StackNavigator({
     Feed: {
-      screen: currencyList,
+      screen: CurrencyList,
       navigationOptions: {
         title: 'Currencies',
       },
@@ -18,4 +19,16 @@ export const FeedStack = StackNavigator({
         title: "Detail View",
       }),
     },
+  });
+
+  export const DetailView = StackNavigator ({
+      Cell:{
+        screen: CurrencyCell
+        },
+        Details: {
+            screen: baseApp,
+            navigationOptions: ({ navigation }) => ({
+              title: "Detail View",
+            }),
+          },
   });
