@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Button, ListItem, List, Icon } from 'react-native-elements';
+import { Button, ListItem, List, Icon,Badge } from 'react-native-elements';
 import { View , StyleSheet, FlatList, Text } from 'react-native';
 import { data } from '../data/data';
 
@@ -7,48 +7,41 @@ import { data } from '../data/data';
 
 export default class UserCoins extends Component {
     render() {
+        console.log(this.props.navigation);
         let item = data[0]
         return (
             <View>
                 <Text style={styles.headerText}>Portfolio</Text>
             <List >
-            
-                <ListItem
-                key={'1'}
-                title="Bitcoin|BTC"
-                rightIcon={
-                    <View>
-                        <Text>Coins: 32</Text> 
-                        <Text>Avg. Cost: $7800</Text> 
-                        <Text>Equity Value: $15,000</Text> 
-                    </View>
-                    }
-                />
-                <ListItem
-                key={'2'}
-                title="Price in BTC"
-                rightIcon={
-                    <Text>{data[0].price_btc}</Text>            
-                    }
-                />
-
-                <ListItem
-                key={'3'}
-                title="Total Supply"
-                rightIcon={
-                    <Text>{data[0].total_supply}</Text>            
-                    }
-                />
-
-                <ListItem
-                key={'4'}
-                title="24 Hour Update"
-                rightIcon={
-                    <Text>{data[0].percent_change_24h}%</Text>            
-                    }
-                />
-
-                
+            {
+            this.props.coins.map((coin) => (
+                <View>
+                    <ListItem
+                    key={coin.id}
+                    title={`${coin.name}`}
+                    subtitle={coin.symbol}
+                    rightIcon={
+                        <View>
+                        <View style={styles.cellInfo}>
+                            <Badge containerStyle={{margin: 3, backgroundColor: 'orange'}}>
+                                <Text style={styles.badgeText} >Coins: {coin.amount}</Text>
+                            </Badge>
+                            <Badge containerStyle={{margin: 3, backgroundColor: 'orange'}}>
+                                <Text style={styles.badgeText} >Avg. Cost: {coin.avgCost}</Text>
+                            </Badge>
+                        </View>
+                        <View style={styles.cellInfo}>
+                        <Badge containerStyle={{margin: 3, backgroundColor: 'orange'}}>
+                            <Text style={styles.badgeText} >Equity Value: {coin.equity}</Text>
+                        </Badge>
+                        </View>
+                        </View>
+                        }
+                    />
+                    
+                </View>
+            ))
+            }
             </List>
             </View>
         );}
@@ -63,5 +56,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center'
+      },
+      cellInfo:{
+        alignItems:'center',
+        justifyContent:'center',
+        flexDirection: 'row',
+        marginRight: 5
+      },
+      badgeText:{
+          color:'#ffff'
       }
   })

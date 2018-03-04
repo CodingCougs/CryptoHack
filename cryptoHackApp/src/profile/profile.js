@@ -6,6 +6,12 @@ import UserCoins from './userCoins';
 
 
 export default class DetailView extends Component {
+
+    constructor(props){
+        super(props);
+        this.state={};
+    }
+
     render() {
         return (
             <View>
@@ -21,9 +27,9 @@ export default class DetailView extends Component {
                 justifyContent:'center'}}
 
             />
-            <Text style={styles.headerText}>Mr. Bit | $54,951</Text>
+            <Text style={styles.headerText}>{this.props.screenProps.name} | ${this.props.screenProps.spendingPower}</Text>
             </View>
-            <UserCoins />
+            <UserCoins coins={this.props.screenProps.userCoins}/>
             </View>
         )
     }

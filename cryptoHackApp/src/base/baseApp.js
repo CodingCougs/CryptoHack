@@ -17,7 +17,7 @@ export default class BaseApp extends Component {
 
   render() {
     return (
-      <Tabs/>
+      <Tabs screenProps={this.props.app.user}/>
     )
   }
 }
