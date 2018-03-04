@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
 
 function mapStateToProps(state){
-    console.log(state)
     return {
         app: state.containers.BaseAppReducer
     }
