@@ -4,7 +4,7 @@ import { Icon } from 'react-native-elements';
 
 import {CurrencyListContainer} from '../currencyList/_currencyList';
 import CurrencyCell from '../currencyCell/currencyCell';
-import baseApp from '../base/baseApp';
+import baseApp from './baseApp';
 
 export const FeedStack = StackNavigator({
     Feed: {

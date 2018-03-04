@@ -23,6 +23,7 @@ export function * getTopHundyCoins(action){
         let response = yield call(coinMarketCapAPI.getTopHundred);
         if(response.error)  yield put({ type:baseActions.GET_TOP_100_COIN_FAILURE, payload: response})
         yield put({ type:baseActions.GET_TOP_100_COIN_SUCCESS, payload:response})
+        yield put({type:baseActions.GET_COIN_LIST, payload: {} })
     }catch(e){
         yield put({ type:baseActions.GET_TOP_100_COIN_FAILURE, payload: e})
     }
@@ -50,9 +51,20 @@ export function * getCoinDayHistory(action){
     }
 }
 
+export function* getCoinList(action){
+    try{
+        let response = yield call(cryptoCompareAPI.getCoinList);
+        if(response.error)  yield put({ type:baseActions.GET_COIN_LIST_FAILURE, payload: response})
+        yield put({ type:baseActions.GET_COIN_LIST_SUCCESS, payload:response})
+    }catch(e){
+        yield put({ type:baseActions.GET_COIN_LIST_FAILURE, payload: e})
+    }
+}
+
 export default function* baseSaga(){
     yield takeLatest(baseActions.GET_COIN_CURRENT_PRICE, getCoinCurrentPrice);
     yield takeLatest(baseActions.GET_COIN_HISTORY, getCoinDayHistory);
     yield takeLatest(baseActions.GET_TOP_100_COIN, getTopHundyCoins);
     yield takeLatest(baseActions.GET_TOP_10_COIN, getTopTenCoins);
+    yield takeLatest(baseActions.GET_COIN_LIST, getCoinList);
 }

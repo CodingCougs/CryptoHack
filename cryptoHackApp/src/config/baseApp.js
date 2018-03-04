@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { FeedStack } from '../config/router';
+
 export default class BaseApp extends Component {
 
   constructor(props){
@@ -8,18 +8,15 @@ export default class BaseApp extends Component {
     this.state = { }
   }
   
-  componentDidMount(){
-
-    console.log(this.props)
-    this.props.getTopHundyCoins();
-    
-  }
-
 
   render() {
     return (
-      <FeedStack/>
-    )
+      <View style={styles.container}>
+        <Text>Open up App.js to start working on your app!</Text>
+        <Text>GO GO CODING COUGS GO GO</Text>
+        <Text>Shake your phone to open the developer menu.</Text>
+      </View>
+    );
   }
 }
 
