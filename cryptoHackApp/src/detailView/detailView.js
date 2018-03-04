@@ -7,12 +7,19 @@ import { View } from 'react-native';
 
 
 export default class DetailView extends Component {
+
+    constructor(props){
+        super(props);
+        this.state={};
+    }
+
     render() {
+
         return (
             <View>
                 <Graph />
                 <BuySell/>
-                <DetailList/>
+                <DetailList coin={this.props.navigation.state.params.coin}/>
             </View>
         )
     }

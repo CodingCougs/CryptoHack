@@ -23,7 +23,7 @@ export default class CurrencyCell extends Component {
     }
 
     onLearnMore = () => {
-        this.props.navigation.navigate('Details');
+        this.props.navigation.navigate('Details',{coin: this.props.currency});
     };
 
     onCheckCurInfo = (currency) => {

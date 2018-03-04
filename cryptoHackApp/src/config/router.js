@@ -3,7 +3,7 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 
 import {CurrencyListContainer} from '../currencyList/_currencyList';
-import DetailView from '../detailView/_detailView';
+import DetailView from '../detailView/detailView';
 import Profile from '../profile/profile';
 
 export const FeedStack = StackNavigator({
