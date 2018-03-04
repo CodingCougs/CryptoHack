@@ -1,7 +1,7 @@
-import { fork, all } from 'redux-saga';
+import { fork, all } from 'redux-saga/effects';
 //import sagas here
 
-import {baseSaga} from '../base/baseAppSaga'
+import baseSaga from '../base/baseAppSaga'
 
 const sagas = [
     // add sagas here
