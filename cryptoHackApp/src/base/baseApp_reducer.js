@@ -10,13 +10,12 @@ export default function ( state= {
 
   case baseActions.GET_TOP_100_COIN_SUCCESS:
     stateCopy.coins = action.payload;
+    console.log(action.payload)
     return {stateCopy}
 
   case baseActions.GET_COIN_LIST_SUCCESS:
     stateCopy.coinlist = action.payload.Data;
     return {stateCopy}
-    
-
 
     default:
         return {...stateCopy}
